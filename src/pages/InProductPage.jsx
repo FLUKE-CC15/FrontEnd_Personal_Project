@@ -75,7 +75,7 @@ export default function InProduct() {
                         </div>
                     </div>
                     <div className="flex justify-center px-3 py-1 items-center gap-3">
-                        <button class="px-4 py-1 font-bold bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg text-sm"><Link to='/inproduct/emptycart'>Add to cart</Link></button>
+                        <button class="px-4 py-1 font-bold bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg text-sm"><Link to='/emptycart'>Add to cart</Link></button>
                         <button class="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm"><Link to='/cart'>Buy now</Link></button>
                     </div>
                 </div>

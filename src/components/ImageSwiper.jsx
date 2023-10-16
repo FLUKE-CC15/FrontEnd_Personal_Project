@@ -31,38 +31,63 @@ function ImageSwiper() {
         modules={[Autoplay, EffectCoverflow, Pagination]}
         className=''
       >
-        <SwiperSlide className='w-[800px] h-[400px] p-3    ' >
-          <div className=' bg-sky-100 border-4 border-sky-200 h-full rounded-xl'>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
           </div>
         </SwiperSlide>
-        <SwiperSlide className='w-[800px] h-[400px] p-3    ' >
-          <div className=' bg-sky-100 border-4 border-sky-200 h-full rounded-xl'>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
           </div>
         </SwiperSlide>
-        <SwiperSlide className='w-[800px] h-[400px] p-3    ' >
-          <div className=' bg-sky-100 border-4 border-sky-200 h-full rounded-xl'>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
           </div>
         </SwiperSlide>
-        <SwiperSlide className='w-[800px] h-[400px] p-3    ' >
-          <div className=' bg-sky-100 border-4 border-sky-200 h-full rounded-xl'>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
           </div>
         </SwiperSlide>
-        <SwiperSlide className='w-[800px] h-[400px] p-3    ' >
-          <div className=' bg-sky-100 border-4 border-sky-200 h-full rounded-xl'>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
           </div>
         </SwiperSlide>
-        <SwiperSlide className='w-[800px] h-[400px] p-3    ' >
-          <div className=' bg-sky-100 border-4 border-sky-200 h-full rounded-xl'>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
           </div>
         </SwiperSlide>
-        <SwiperSlide className='w-[800px] h-[400px] p-3    ' >
-          <div className=' bg-sky-100 border-4 border-sky-200 h-full rounded-xl'>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
           </div>
         </SwiperSlide>
-        <SwiperSlide className='w-[800px] h-[400px] p-3    ' >
-          <div className=' bg-sky-100 border-4 border-sky-200 h-full rounded-xl'>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
           </div>
         </SwiperSlide>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className='w-[800px] h-[400px] p-3  overflow-hidden  ' >
+          <div className=' bg-sky-100 border-4 border-sky-200 h-full overflow-hidden rounded-xl'>
+          <img src='https://source.unsplash.com/random'/>
+          </div>
+        </SwiperSlide>
+        
+        
 
        
         

@@ -8,13 +8,14 @@ import ProductPage from '../pages/ProductPage'
 import InProduct from '../pages/InProductPage'
 import EmptyCart from '../pages/EmptyCart'
 import CartPage from '../pages/CartPage'
+import { useState } from 'react'
 
 const router = createBrowserRouter(
     [{
         path: '/',
         element: (
             <div>
-                <Header/>
+                <Header />
                 <Outlet />
                 <Footer/>
             </div>
@@ -25,8 +26,9 @@ const router = createBrowserRouter(
             { path: '/register', element: <RegisterPage/> },
             { path: '/product', element: <ProductPage/> },
             { path: '/product/inproduct', element: <InProduct/>},
-            { path: '/inproduct/emptycart', element: <EmptyCart/>},
+            { path: '/emptycart', element: <EmptyCart/>},
             { path: '/cart', element: <CartPage/>},
+            
                         
         ]
 
@@ -37,3 +39,7 @@ const router = createBrowserRouter(
 export default function Router() {
     return <RouterProvider router={router}> </RouterProvider>
 }
+
+{/* <div className="flex justify-center pt-20 z-50 h-screen w-full fixed backdrop-blur  ">
+            <LoginPage/>
+</div> */}

@@ -1,6 +1,7 @@
 
 import ImageSwiper from '../components/ImageSwiper'
 import HeadPhone from '../components/product/Headphone'
+import LoginPage from './LoginPage'
 
 
 export default function HomePage() {
@@ -17,5 +18,6 @@ export default function HomePage() {
                 <HeadPhone />
             </div>
         </div >
+        
     </div>
 }

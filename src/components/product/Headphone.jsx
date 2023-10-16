@@ -12,7 +12,7 @@ export default function HeadPhone() {
             <div className='flex'>
                 <div className=''>
                     <div className=' overflow-hidden w-[220px] h-[300px] bg-sky-100 rounded-2xl border-2 border-grey-500'>
-                        <img src={picimg} className='object-fill w-[220px] h-[300px]' />
+                        <img src='https://source.unsplash.com/random' className=' w-[220px] h-[300px]' />
                     </div>
                 </div>
                 <div>

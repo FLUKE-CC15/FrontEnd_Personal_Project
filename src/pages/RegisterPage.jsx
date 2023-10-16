@@ -1,3 +1,3 @@
 export default function RegisterPage(){
-    return <h1>Register Page Component</h1>
+    return <h1>Registerssssssssssssssssssssssss Page Component</h1>
 }
