@@ -8,6 +8,7 @@ import ProductPage from '../pages/ProductPage'
 import InProduct from '../pages/InProductPage'
 import EmptyCart from '../pages/EmptyCart'
 import CartPage from '../pages/CartPage'
+
 const router = createBrowserRouter(
     [{
         path: '/',
@@ -34,7 +35,5 @@ const router = createBrowserRouter(
 )
 
 export default function Router() {
-    return <RouterProvider router={router}>
-
-    </RouterProvider>
+    return <RouterProvider router={router}> </RouterProvider>
 }
