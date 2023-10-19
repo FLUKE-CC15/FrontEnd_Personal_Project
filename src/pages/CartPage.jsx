@@ -1,5 +1,13 @@
 import HeadphoneSwiper from "../components/product/HeadphoneSwiper";
+import { useState } from "react";
+import QR from '../images/QR.png'
+import Success from "../components/success";
 export default function CartPage() {
+    const [success,setSuccess ] = useState()
+    const onClickCheckout = (link) => {
+        setSuccess(link)
+    }
+
     return <div className="flex flex-col justify-center items-center">
         <div className="flex justify-start items-center w-[1200px] text-[30px] font-bold  mb-2">My cart</div>
         <div className="flex flex-col mb-40">
@@ -22,6 +30,7 @@ export default function CartPage() {
                                     <button className="w-[24px] h-[30px] flex border-2 justify-center items-center rounded-l-lg font-bold hover:border-sky-500">-</button>
                                     <div className="w-[42px] h-[30px] flex border-y-2 justify-center items-center font-bold" >2</div>
                                     <button className="w-[24px] h-[30px] flex border-2 justify-center items-center rounded-r-lg font-bold hover:border-sky-500">+</button>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -43,12 +52,12 @@ export default function CartPage() {
                     </div>
 
                 </div>
-                <div className="border-2 h-[220px] rounded-xl flex flex-col  ">
-                    <div className="text-[20px] font-bold px-2 pt-2">Total</div>
+                <div className="border-2 h-[500px] rounded-xl flex flex-col  ">
+                    <div className="text-[20px] font-bold pt-3 px-2 ">Total</div>
 
-                    <div className="flex flex-col h-full justify-around items-center ">
+                    <div className="flex flex-col h-full justify-start gap-4 items-center ">
 
-                        <div className=" flex flex-col  w-full px-5 ">
+                        <div className=" flex flex-col pt-2 w-full px-5 ">
 
                             <div className="flex justify-between">
                                 <div className="text-[18px] font-bold">Items</div>
@@ -69,16 +78,17 @@ export default function CartPage() {
                             </div>
                             <div className="font-bold text-[30px] text-sky-500 drop-shadow-md ">$100,299</div>
                         </div>
-
-                        <button class="mb-1 w-[70%] px-4 py-1 font-bold text-[20px] bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-xl">Checkout</button>
-                    
+                        <div className="w-[170px] h-[170px] bg-red-300"><img src={QR} /></div>
+                            <input className="block  w-[70%] text-sm text-gray-900 border-2  rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file"></input >
+                        <button onClick={() => onClickCheckout(<div className='fixed bottom-0 left-0 flex justify-center items-center h-full w-full backdrop-blur z-50'> <Success closeSuccess={setSuccess} /> </div>)} class="mb-1 w-[70%] px-4 py-1 font-bold text-[20px] bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-xl">Checkout</button>
                     </div>
-
                 </div>
             </div>
-
         </div>
-        <div className="w-full">
+        {success}
+
+
+        <div className="w-screen">
             <div className="p-5 bg-sky-50 grid justify-center">
                 <div className="text-[30px] font-bold pl-2">Interesting Product!</div>
                 <HeadphoneSwiper />

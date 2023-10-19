@@ -5,7 +5,7 @@ export default function HeadPhone() {
 
         <div className='flex justify-between items-center h-[50px] px-[50px] my-2'>
             <p className=' text-3xl font-bold '>Product Name</p>
-            <button class=" w-28 h-8 font-medium bg-blue-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-full ">See more</button>
+            <button className=" w-28 h-8 font-medium bg-blue-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-full ">See more</button>
         </div>
 
         <div className='flex justify-center items-center ' >

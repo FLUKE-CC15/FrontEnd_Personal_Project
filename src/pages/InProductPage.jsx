@@ -75,15 +75,15 @@ export default function InProduct() {
                         </div>
                     </div>
                     <div className="flex justify-center px-3 py-1 items-center gap-3">
-                        <button class="px-4 py-1 font-bold bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg text-sm"><Link to='/emptycart'>Add to cart</Link></button>
-                        <button class="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm"><Link to='/cart'>Buy now</Link></button>
+                        <Link to='/emptycart'><button className="px-4 py-1 font-bold bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg text-sm">Add to cart</button></Link>
+                        <Link to='/cart'><button className="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm">Buy now</button></Link>
                     </div>
                 </div>
             </div>
         </div>
         <div className="w-full">
-            <div className="p-5 bg-sky-50 grid justify-center">
-                <div className="text-[30px] font-bold pl-2">Interesting Product!</div>
+            <div className="p-5  grid justify-center">
+                <div className=" text-[30px] font-bold pl-2">Interesting Product!</div>
                 <HeadphoneSwiper />
             </div>
         </div>

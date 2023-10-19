@@ -33,10 +33,10 @@ export default function ProductPage() {
             
         </div>
         <div className="flex justify-center items-center w-[1100px] gap-3 p-2 pb-5 ">
-            <button class=" w-8 h-8 font-medium  border-2 border-sky-500 bg-gray-100 text-sky-600 rounded-full ">1</button>
-            <button class=" w-8 h-8 font-medium bg-blue-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-full ">2</button>
-            <button class=" w-8 h-8 font-medium bg-blue-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-full ">3</button>
-            <button class=" w-8 h-8 font-medium bg-blue-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-full ">4</button>
+            <button className=" w-8 h-8 font-medium  border-2 border-sky-500 bg-gray-100 text-sky-600 rounded-full ">1</button>
+            <button className=" w-8 h-8 font-medium bg-blue-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-full ">2</button>
+            <button className=" w-8 h-8 font-medium bg-blue-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-full ">3</button>
+            <button className=" w-8 h-8 font-medium bg-blue-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-full ">4</button>
         </div>
     </div>
 }
