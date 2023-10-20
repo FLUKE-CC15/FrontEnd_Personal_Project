@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../hooks/use-auth';
-export default function LoginPage({ open }) {
+export default function LoginPage({ open,close }) {
     const [input, setInput] = useState({
         userName: '',
         password: ''
@@ -16,7 +16,7 @@ export default function LoginPage({ open }) {
         {open && (
             <div className='fixed bottom-0 left-0 flex justify-center items-center h-full w-full backdrop-blur z-50'>
                 <div className="relative flex flex-col items-center justify-center h-[450px] w-[520px] border-4 rounded-2xl border-sky-300 bg-white">
-                    <button className=" text-white absolute top-3 right-3 bg-sky-300 border-2 hover:text-sky-500 hover:bg-white hover:border-sky-500 w-8 h-8 flex justify-center items-center rounded-full " >
+                    <button onClick={close} className=" text-white absolute top-3 right-3 bg-sky-300 border-2 hover:text-sky-500 hover:bg-white hover:border-sky-500 w-8 h-8 flex justify-center items-center rounded-full " >
                         X
                     </button>
                     <div className=" font-bold text-[50px] text-sky-500">
@@ -41,7 +41,7 @@ export default function LoginPage({ open }) {
                         <div className="relative my-5 flex h-px place-items-center bg-gray-200">
                             <div className="absolute left-1/2 h-6 -translate-x-1/2 bg-white px-4 text-center text-sm text-gray-500">or</div>
                         </div>
-                        <div className=" " ><Link to='/register'><button className="px-4 py-1 my-2 w-full font-bold hover:bg-sky-500 border-2 border-sky-500 hover:border-sky-500 bg-gray-100 text-sky-500 hover:text-white rounded-lg text-[20px]" >Register</button></Link></div>
+                        <div onClick={close} className=" " ><Link to='/register'><button className="px-4 py-1 my-2 w-full font-bold hover:bg-sky-500 border-2 border-sky-500 hover:border-sky-500 bg-gray-100 text-sky-500 hover:text-white rounded-lg text-[20px]" >Register</button></Link></div>
 
                     </div>
                 </div></div>)}</>)

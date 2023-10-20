@@ -14,13 +14,10 @@ export default function Header() {
                 <li className="hover:cursor-pointer"><Link to='/'>Home</Link></li>
                 <li className="hover:cursor-pointer"><Link to='/product'>Products</Link></li>
                 <li className="hover:cursor-pointer"><Link to='emptycart'>Cart</Link></li>
-                {/* <li className="hover:cursor-pointer" onClick={() => onClickLogin(<div className='fixed bottom-0 left-0 flex justify-center items-center h-full w-full backdrop-blur z-50'><LoginPage closeLogin={setLogin} /></div>)} >Login</li> */}
-                {/* <li className="hover:cursor-pointer"><Link to='/login'>Login</Link></li> */}
                 <li className="hover:cursor-pointer" onClick={() => setIsLogin(true)} >Login</li>
             </ul>
-               <LoginPage  open={isLogin}></LoginPage>
+               <LoginPage  open={isLogin} close={()=> setIsLogin(false)}></LoginPage>
         </header>
        
         </div>
 }
-// fixed bottom-0 left-0 flex justify-center items-center h-full w-full backdrop-blur z-50

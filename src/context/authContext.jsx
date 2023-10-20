@@ -1,9 +1,9 @@
 
 import { createContext, useEffect } from 'react';
 import { useState } from 'react'
-export const AuthContext = createContext();
 import axios from '../config/axios'
 import { AddAccessToken ,getAccessToken} from '../utils/local-storage';
+export const AuthContext = createContext();
 
 
 export default function AuthContextProvider({ children }) {
@@ -39,5 +39,13 @@ export default function AuthContextProvider({ children }) {
         console.log(credential)
 
     }
-    return <AuthContext.Provider value={{ login ,authUser,initialLoading}}>{children}</AuthContext.Provider>
+    const register = async registerInputObject => {
+      const res = await axios.post('/auth/register', registerInputObject);
+      AddAccessToken(res.data.accessToken);
+      setAuthUser(res.data.user);
+    };
+
+
+
+    return <AuthContext.Provider value={{ login ,authUser,initialLoading,register}}>{children}</AuthContext.Provider>
 }
