@@ -10,6 +10,7 @@ export default function AuthContextProvider({ children }) {
     const [authUser, setAuthUser] = useState(null);
     const [initialLoading, setInitialLoading] = useState(true);
     const [isLogin,setIsLogin] = useState(false);
+    const [isLoginErr,setisLoginErr] = useState(false);
 
     useEffect(() => {
         if (getAccessToken()) {
@@ -31,13 +32,17 @@ export default function AuthContextProvider({ children }) {
 
 
     const login = async credential => {
+      
         try {
             const res = await axios.post('/auth/login', credential)
             AddAccessToken(res.data.accessToken)
             setAuthUser(res.data.user)
             setIsLogin(true)
+            return true
         } catch (err) {
             console.log(err)
+            setisLoginErr(true)
+            return false
         }
         console.log(credential)
 
@@ -48,7 +53,13 @@ export default function AuthContextProvider({ children }) {
       setAuthUser(res.data.user);
     };
 
+    const logout = () => {
+      setIsLogin(false);
+      removeAccessToken();
+      setAuthUser(null);
+    };
+    
 
 
-    return <AuthContext.Provider value={{ login ,authUser,initialLoading,register ,isLogin}}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{ login ,authUser,initialLoading,register ,isLogin,isLoginErr,logout}}>{children}</AuthContext.Provider>
 }

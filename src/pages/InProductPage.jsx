@@ -9,23 +9,25 @@ import img4 from '../images/pet/11.png'
 import CategoryButton from "../components/categoryButton";
 import { useAuth } from "../hooks/use-auth";
 import LoginPage from "./LoginPage";
+import { useModal } from "../hooks/use-modal";
 export default function InProduct() {
-    const [img, setImg] = useState(<img src={img1}/>)
+    const { onOpenModal } = useModal()
+    const [img, setImg] = useState(<img src={img1} />)
     const onClickSelectImg = (link) => {
         setImg(link)
     }
     const { isLogin } = useAuth()
-    const [isModalLoginOpen,setIsModalLoginOpen] = useState(false)
+    const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
 
-    const handleBuyNow=()=>{
-        if(!isLogin){
-            setIsModalLoginOpen(true)
+    const handleBuyNow = () => {
+        if (!isLogin) {
+            onOpenModal("loginModal")
             return
         }
     }
     return <div className="flex flex-col items-center ">
-        
-        <CategoryButton/>
+
+        <CategoryButton />
 
         <div className="flex justify-start items-center w-[1100px] px-3 ">
             <div className="flex justify-start w-[1100px] gap-5  py-2">
@@ -86,7 +88,7 @@ export default function InProduct() {
                     </div>
                     <div className="flex justify-center px-3 py-1 items-center gap-3">
                         <Link to='/emptycart'><button className="px-4 py-1 font-bold bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg text-sm">Add to cart</button></Link>
-                        <button className="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm" onClick={handleBuyNow}>Buy now</button>
+                        <button className="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm" onClick={() => handleBuyNow()}>Buy now</button>
                     </div>
                 </div>
             </div>
@@ -97,9 +99,7 @@ export default function InProduct() {
                 <HeadphoneSwiper />
             </div>
         </div>
-
-
-<LoginPage open={isModalLoginOpen}/>
+        <LoginPage open={isModalLoginOpen} />
 
     </div>
 }

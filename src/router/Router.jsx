@@ -44,12 +44,12 @@ import Authenticated from '../auth/Authenticated'
 // )
 
 const router = createBrowserRouter(
-    [{ path: '/login', element:<RedirectAuthenticated> <LoginPage /></RedirectAuthenticated>},{
+    [{
         path: '/',
         element: ( 
             <div>
-                <div className=" fixed z-20 top-[30px] right-[30px]"> <AdminMenu /></div>
-                <Header />
+                {/* <div className=" fixed z-20 top-[30px] right-[30px]"> <AdminMenu /></div> */}
+                <div className="flex justify-center"><Header /></div>
                 <div className="flex justify-center"><Outlet /></div>
                 <Footer />
             </div>
