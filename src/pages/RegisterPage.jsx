@@ -30,7 +30,7 @@ export default function RegisterPage() {
         confirmPassword: ''
     });
 
-    const {register} =useAuth()
+    const { register } = useAuth()
 
     const handleChangeInput = e => {
         setInput({ ...input, [e.target.name]: e.target.value })
@@ -45,7 +45,7 @@ export default function RegisterPage() {
         setError({});
         register(input).catch(err => {
             toast.error(err.response?.data.message);
-          });
+        });
 
     }
 

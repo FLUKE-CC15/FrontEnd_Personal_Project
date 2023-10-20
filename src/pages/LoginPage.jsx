@@ -4,23 +4,23 @@ import { useAuth } from '../hooks/use-auth';
 import { useModal } from '../hooks/use-modal';
 export default function LoginPage() {
     // const naviagte = useNavigate()   
-    const {onCloseModal,isOpenModal,modalType} = useModal()
+    const { onCloseModal, isOpenModal, modalType } = useModal()
     const [input, setInput] = useState({
         userName: '',
         password: ''
     });
-    const { login,isLoginErr } = useAuth();
-    const handleSubmitForm =async e => {
+    const { login, isLoginErr } = useAuth();
+    const handleSubmitForm = async e => {
         e.preventDefault();
-        if(!input.userName || !input.password){
+        if (!input.userName || !input.password) {
             return
         }
-      let isvalid = await login(input)
-      if(isvalid) close(false)
+        let isvalid = await login(input)
+        if (isvalid) close(false)
     }
 
     return (<>
-        {isOpenModal && modalType ==="loginModal" && (
+        {isOpenModal && modalType === "loginModal" && (
             <div className='fixed bottom-0 left-0 flex justify-center items-center h-full w-full backdrop-blur z-50'>
                 <div className="relative flex flex-col items-center justify-center h-[450px] w-[520px] border-4 rounded-2xl border-sky-300 bg-white">
                     <button onClick={onCloseModal} className=" text-white absolute top-3 right-3 bg-sky-300 border-2 hover:text-sky-500 hover:bg-white hover:border-sky-500 w-8 h-8 flex justify-center items-center rounded-full " >
@@ -48,16 +48,16 @@ export default function LoginPage() {
                         <div className="relative my-5 flex h-px place-items-center bg-gray-200">
                             <div className="absolute left-1/2 h-6 -translate-x-1/2 bg-white px-4 text-center text-sm text-gray-500">or</div>
                         </div>
-                
-                            <a href='/register'><button className="px-4 py-1 my-2 w-full font-bold hover:bg-sky-500 border-2 border-sky-500 hover:border-sky-500 bg-gray-100 text-sky-500 hover:text-white rounded-lg text-[20px]">Register</button></a>
-                   
-                            {isLoginErr && <h2>Error</h2>}
+
+                        <a href='/register'><button className="px-4 py-1 my-2 w-full font-bold hover:bg-sky-500 border-2 border-sky-500 hover:border-sky-500 bg-gray-100 text-sky-500 hover:text-white rounded-lg text-[20px]">Register</button></a>
+
+                        {isLoginErr && <h2>Error</h2>}
                     </div>
                 </div>
             </div>
-                )
-                }
-       </>)
+        )
+        }
+    </>)
 }
 
 
