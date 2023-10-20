@@ -10,6 +10,7 @@ export default function LoginPage({ open,close }) {
     const handleSubmitForm = e => {
         e.preventDefault();
         login(input)
+        close(false)
     }
 
     return (<>

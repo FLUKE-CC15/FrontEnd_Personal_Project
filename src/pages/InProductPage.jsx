@@ -7,11 +7,21 @@ import img2 from '../images/pet/9.png'
 import img3 from '../images/pet/10.png'
 import img4 from '../images/pet/11.png'
 import CategoryButton from "../components/categoryButton";
-
+import { useAuth } from "../hooks/use-auth";
+import LoginPage from "./LoginPage";
 export default function InProduct() {
     const [img, setImg] = useState(<img src={img1}/>)
     const onClickSelectImg = (link) => {
         setImg(link)
+    }
+    const { isLogin } = useAuth()
+    const [isModalLoginOpen,setIsModalLoginOpen] = useState(false)
+
+    const handleBuyNow=()=>{
+        if(!isLogin){
+            setIsModalLoginOpen(true)
+            return
+        }
     }
     return <div className="flex flex-col items-center ">
         
@@ -76,7 +86,7 @@ export default function InProduct() {
                     </div>
                     <div className="flex justify-center px-3 py-1 items-center gap-3">
                         <Link to='/emptycart'><button className="px-4 py-1 font-bold bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg text-sm">Add to cart</button></Link>
-                        <Link to='/cart'><button className="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm">Buy now</button></Link>
+                        <button className="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm" onClick={handleBuyNow}>Buy now</button>
                     </div>
                 </div>
             </div>
@@ -89,6 +99,7 @@ export default function InProduct() {
         </div>
 
 
+<LoginPage open={isModalLoginOpen}/>
 
     </div>
 }

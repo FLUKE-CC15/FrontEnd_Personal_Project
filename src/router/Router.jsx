@@ -44,7 +44,7 @@ import Authenticated from '../auth/Authenticated'
 // )
 
 const router = createBrowserRouter(
-    [{ path: '/login', element:<LoginPage />},{
+    [{ path: '/login', element:<RedirectAuthenticated> <LoginPage /></RedirectAuthenticated>},{
         path: '/',
         element: ( 
             <div>
