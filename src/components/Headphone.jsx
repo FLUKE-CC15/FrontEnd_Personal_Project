@@ -1,5 +1,5 @@
 import HeadphoneSwiper from './HeadphoneSwiper'
-import picimg from '../../images/pet/7.png'
+import picimg from '../images/pet/7.png'
 export default function HeadPhone() {
     return <div className='w-[1200px] flex flex-col mb-5'>
 
@@ -16,7 +16,7 @@ export default function HeadPhone() {
                     </div>
                 </div>
                 <div>
-                <HeadphoneSwiper />
+                    <HeadphoneSwiper />
                 </div>
             </div>
         </div>

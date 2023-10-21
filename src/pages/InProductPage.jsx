@@ -1,4 +1,4 @@
-import HeadphoneSwiper from "../components/product/HeadphoneSwiper";
+import HeadphoneSwiper from "../components/HeadphoneSwiper";
 import { Link } from 'react-router-dom'
 import { useState } from "react";
 

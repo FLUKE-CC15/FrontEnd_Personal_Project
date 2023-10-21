@@ -2,6 +2,8 @@ import { useState } from "react";
 import Joi from 'joi';
 import InputErrorMessage from "../components/InputErrorMessage";
 import { useAuth } from "../hooks/use-auth";
+import { Navigate } from "react-router-dom";
+
 
 const registerSchema = Joi.object({
     email: Joi.string().email({ tlds: false }).required(),
@@ -46,6 +48,7 @@ export default function RegisterPage() {
         register(input).catch(err => {
             toast.error(err.response?.data.message);
         });
+
 
     }
 

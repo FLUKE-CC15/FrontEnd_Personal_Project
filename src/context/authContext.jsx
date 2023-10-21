@@ -2,8 +2,9 @@
 import { createContext, useEffect } from 'react';
 import { useState } from 'react'
 import axios from '../config/axios'
-import { AddAccessToken, getAccessToken } from '../utils/local-storage';
+import { AddAccessToken, RemoveAccessToken, getAccessToken } from '../utils/local-storage';
 export const AuthContext = createContext();
+
 
 
 export default function AuthContextProvider({ children }) {
@@ -55,7 +56,7 @@ export default function AuthContextProvider({ children }) {
 
   const logout = () => {
     setIsLogin(false);
-    removeAccessToken();
+    RemoveAccessToken();
     setAuthUser(null);
   };
 
