@@ -1,4 +1,4 @@
-import HeadphoneSwiper from "../components/HeadphoneSwiper";
+import HeadphoneSwiper from "../components/Highlight/HighlightProductSwiper";
 import { Link } from 'react-router-dom'
 import { useState } from "react";
 
@@ -8,9 +8,9 @@ import img3 from '../images/pet/10.png'
 import img4 from '../images/pet/11.png'
 import CategoryButton from "../components/categoryButton";
 import { useAuth } from "../hooks/use-auth";
-import LoginPage from "./LoginPage";
+import LoginPage from "../layout/LoginModal";
 import { useModal } from "../hooks/use-modal";
-export default function InProduct() {
+export default function ShowProductPage() {
     const { onOpenModal } = useModal()
     const [img, setImg] = useState(<img src={img1} />)
     const onClickSelectImg = (link) => {

@@ -54,7 +54,7 @@ export default function RegisterPage() {
 
 
 
-    return <form onSubmit={handleSubmitForm} className="flex flex-col j pt-5 items-center mt-4 pb-5 mb-48 w-[730px] h-full border-4 rounded-2xl  bg-white">
+    return <form onSubmit={handleSubmitForm} className="flex flex-col j pt-5 items-center mt-4 pb-5 mb-[233px] w-[730px] h-full border-4 rounded-2xl  bg-white">
         <div className=" pb-3 text-[40px] font-bold text-sky-500">Register</div>
         <div className="relative m-2 w-[600px] ">
             <input value={input.email} onChange={handleChangeInput} name="email" type="text" className={`border-1 peer block w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900  focus:outline-none focus:ring ${error.email ? 'border-red-500 focus:ring-red-300' : 'focus:ring-sky-300 border-sky-300 focus:border-sky-500'}`} placeholder=" " />

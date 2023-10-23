@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom'
 import delivery from '../images/delivery.png'
 import givemoney from '../images/givemoney.png'
 import security from '../images/security.png'
-
 
 export default function Footer() {
     return <footer>
@@ -31,7 +29,7 @@ export default function Footer() {
                 </div>
             </div>
         </div>
-        <div className='flex flex-col p-5 bg-sky-500 h-[100px] justify-center items-center'>
+        <div className='flex flex-col p-5 bg-sky-500 h-[70px] justify-center items-center'>
 
             <div className="flex gap-5 p-2 font-semibold">
                 <h1 className="hover:cursor-pointer text-white">About NextItem.com</h1>
@@ -43,23 +41,12 @@ export default function Footer() {
                 <h1 className="hover:cursor-pointer text-white">Customer service</h1>
                 <h1 className=" text-white">|</h1>
                 <h1 className="hover:cursor-pointer text-white">Contact us</h1>
-                
+
             </div>
-            <div className="flex justify-center items-center h-10 gap-2 p-1">
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-                <div className=" w-7 h-7 bg-white rounded-lg"></div>
-            </div>
+
             <div className="mb-2"><p className='text-white text-[12px]'>Copyright © 2023 WacharinCh All rights reserved.</p></div>
 
-            
+
         </div>
 
     </footer>

@@ -2,9 +2,9 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import CardProduct from './cardProduct';
+import CardProduct from '../cardProduct';
 
-export default function HeadphoneSwiper() {
+export default function HighlightProductSwiper() {
   return (
     <div className='w-[900px]'>
       <Swiper

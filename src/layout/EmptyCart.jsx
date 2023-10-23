@@ -1,4 +1,4 @@
-import HeadphoneSwiper from "../components/HeadphoneSwiper";
+import HeadphoneSwiper from "../components/Highlight/HighlightProductSwiper";
 import { Link } from 'react-router-dom'
 export default function EmptyCart() {
     return <div className=''>

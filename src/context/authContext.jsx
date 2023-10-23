@@ -12,7 +12,7 @@ export default function AuthContextProvider({ children }) {
   const [initialLoading, setInitialLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
   const [isLoginErr, setisLoginErr] = useState(false);
-
+  const [isAllProduct, setIsAllProduct] = useState([]);
   useEffect(() => {
     if (getAccessToken()) {
       axios
@@ -45,9 +45,8 @@ export default function AuthContextProvider({ children }) {
       setisLoginErr(true)
       return false
     }
-    console.log(credential)
-
   }
+
   const register = async registerInputObject => {
     const res = await axios.post('/auth/register', registerInputObject);
     AddAccessToken(res.data.accessToken);
@@ -60,7 +59,30 @@ export default function AuthContextProvider({ children }) {
     setAuthUser(null);
   };
 
+  const createProduct = async createProductInputObject => {
+    const res = await axios.post('/auth/product', createProductInputObject);
+    const newProduct = res.data.product
+    setIsAllProduct([newProduct, ...isAllProduct])
+  };
+
+  // const deleteProduct = async product => {
+  //   console.log(product)
+  //   await axios.delete('/auth/product', product);
+  //   setIsAllProduct(isAllProduct.filter(e => e.id !== product.id))
+  // };
+
+  const deleteProduct = async (product) => {
+    console.log(product);
+    try {
+      await axios.delete('/auth/product', { data: product });
+      setIsAllProduct((prevProducts) => prevProducts.filter((e) => e.id !== product.id));
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      // Handle the error, e.g., display an error message to the user
+    }
+  };
 
 
-  return <AuthContext.Provider value={{ login, authUser, initialLoading, register, isLogin, isLoginErr, logout }}>{children}</AuthContext.Provider>
+
+  return <AuthContext.Provider value={{ deleteProduct, isAllProduct, setIsAllProduct, login, authUser, initialLoading, register, isLogin, isLoginErr, logout, createProduct }}>{children}</AuthContext.Provider>
 }

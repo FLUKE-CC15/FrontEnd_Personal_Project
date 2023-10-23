@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/use-auth';
 import { useModal } from '../hooks/use-modal';
 import err from "../images/err.png"
-export default function LoginPage() {
+export default function LoginModal() {
     const { onCloseModal, isOpenModal, modalType } = useModal()
     const [input, setInput] = useState({
         userName: '',
@@ -26,10 +26,7 @@ export default function LoginPage() {
         let isvalid = await login(input)
 
         if (isvalid) onCloseModal()
-
     }
-
-
 
     return (<>
         {isOpenModal && modalType === "loginModal" && (

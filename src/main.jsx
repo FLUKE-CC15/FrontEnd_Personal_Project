@@ -3,14 +3,14 @@ import App from './App.jsx'
 import './index.css'
 import AuthContextProvider from './context/authContext.jsx'
 import ModalContextProvider from './context/modalContext.jsx'
-import { ModalProvider } from './providers/modal-provider.jsx'
+import { ModalProvider } from './layout/providers/modal-provider.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <AuthContextProvider>  
+  <AuthContextProvider>
     <ModalContextProvider>
-    <ModalProvider/>
-    <App />     
-      </ModalContextProvider> 
+      <ModalProvider />
+      <App />
+    </ModalContextProvider>
   </AuthContextProvider>
 )

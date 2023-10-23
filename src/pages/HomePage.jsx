@@ -1,18 +1,15 @@
-import ImageSwiper from '../components/ImageSwiper'
-import HeadPhone from '../components/Headphone'
+import HighlightProduct from "../components/Highlight/HighlightProduct";
+import ShowPromotion from "../layout/showPromotion";
 
 export default function HomePage() {
     return <div className=' flex flex-col items-center justify-items-center'>
-
-        <div className=''>
-            <ImageSwiper />
+        <div className="w-full mb-[100px]">
+            <ShowPromotion />
         </div>
-
-        <div className='pb-10'>
-            <div className=''>
-                <HeadPhone />
-            </div>
-        </div >
+        <div className="mb-[80px]">
+            <HighlightProduct />
+            <HighlightProduct />
+        </div>
 
     </div>
 }

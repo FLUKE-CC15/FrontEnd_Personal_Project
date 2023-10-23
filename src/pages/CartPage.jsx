@@ -1,12 +1,9 @@
-import HeadphoneSwiper from "../components/HeadphoneSwiper";
-import { useState } from "react";
+import HeadphoneSwiper from "../components/Highlight/HighlightProductSwiper";
+
 import QR from '../images/QR.png'
-import Success from "../components/success";
+
 export default function CartPage() {
-    const [success, setSuccess] = useState()
-    const onClickCheckout = (link) => {
-        setSuccess(link)
-    }
+
 
     return <div className="flex flex-col justify-center items-center">
         <div className="flex justify-start items-center w-[1200px] text-[30px] font-bold  mb-2">My cart</div>
@@ -80,12 +77,12 @@ export default function CartPage() {
                         </div>
                         <div className="w-[170px] h-[170px] bg-red-300"><img src={QR} /></div>
                         <input className="block  w-[70%] text-sm text-gray-900 border-2  rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file"></input >
-                        <button onClick={() => onClickCheckout(<div className='fixed bottom-0 left-0 flex justify-center items-center h-full w-full backdrop-blur z-50'> <Success closeSuccess={setSuccess} /> </div>)} class="mb-1 w-[70%] px-4 py-1 font-bold text-[20px] bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-xl">Checkout</button>
+                        <button class="mb-1 w-[70%] px-4 py-1 font-bold text-[20px] bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-xl">Checkout</button>
                     </div>
                 </div>
             </div>
         </div>
-        {success}
+
 
 
         <div className="w-screen">

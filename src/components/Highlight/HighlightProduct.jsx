@@ -1,6 +1,5 @@
-import HeadphoneSwiper from './HeadphoneSwiper'
-import picimg from '../images/pet/7.png'
-export default function HeadPhone() {
+import HighlightProductSwiper from './HighlightProductSwiper'
+export default function HighlightProduct() {
     return <div className='w-[1200px] flex flex-col mb-5'>
 
         <div className='flex justify-between items-center h-[50px] px-[50px] my-2'>
@@ -16,7 +15,7 @@ export default function HeadPhone() {
                     </div>
                 </div>
                 <div>
-                    <HeadphoneSwiper />
+                    <HighlightProductSwiper />
                 </div>
             </div>
         </div>
