@@ -4,7 +4,7 @@ import UpdetedProductModal from '../layout/updetedProductModal';
 export default function ProductItemlist({ item, selectedProductId, setSelectedProductId }) {
     const { deleteProduct } = useAuth();
     const { onOpenModal } = useModal()
-    const { isAllProduct } = useAuth();
+
 
     return (
         <div className="w-full">
