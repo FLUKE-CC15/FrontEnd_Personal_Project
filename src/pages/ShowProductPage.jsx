@@ -6,7 +6,7 @@ import img1 from '../images/pet/8.png'
 import img2 from '../images/pet/9.png'
 import img3 from '../images/pet/10.png'
 import img4 from '../images/pet/11.png'
-import CategoryButton from "../components/categoryButton";
+import CategoryButton from "../layout/categoryButton";
 import { useAuth } from "../hooks/use-auth";
 import LoginPage from "../layout/LoginModal";
 import { useModal } from "../hooks/use-modal";
@@ -17,7 +17,7 @@ export default function ShowProductPage() {
         setImg(link)
     }
     const { isLogin } = useAuth()
-    const [isModalLoginOpen, setIsModalLoginOpen] = useState(false)
+    const [isModalLoginOpen] = useState(false)
 
     const handleBuyNow = () => {
         if (!isLogin) {

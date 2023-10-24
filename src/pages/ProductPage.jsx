@@ -15,19 +15,8 @@ export default function ProductPage() {
         <div className=" text-[40px] font-bold w-[1100px] pl-2">Products</div>
         <div className="grid grid-cols-4 gap-[10px] pt-4  pb-4 justify-items-center">
 
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
-            <Link to='/product/InProduct'><CardProduct /></Link>
+            <Link to='/product/name'><CardProduct /></Link>
+
 
 
 

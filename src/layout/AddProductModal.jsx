@@ -4,8 +4,8 @@ import axios from '../config/axios';
 import { useAuth } from '../hooks/use-auth';
 
 
-export default function AddProductModal({ allproduct }) {
-    const { createProduct } = useAuth();
+export default function AddProductModal() {
+    const { createProduct, getProduct } = useAuth();
     const { onCloseModal, isOpenModal, modalType } = useModal()
     const [inputProduct, setInputProduct] = useState({
         ProductName: '',
@@ -15,16 +15,12 @@ export default function AddProductModal({ allproduct }) {
         productType: ''
     })
 
-    const handleSubmitForm = async e => {
+    const handleSubmitForm = e => {
         e.preventDefault();
         createProduct(inputProduct).then(() => {
-
-            axios.get('/auth/product', { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` } })
-                .then(res => {
-                    allproduct(res.data.getproduct)
-                })
-                .catch(err => console.log(err));
-        });
+            getProduct()
+        })
+        getProduct()
         onCloseModal()
     }
 

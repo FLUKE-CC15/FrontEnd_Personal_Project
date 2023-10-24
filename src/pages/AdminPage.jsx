@@ -6,15 +6,9 @@ import AddProductModal from "../layout/AddProductModal";
 import { useAuth } from "../hooks/use-auth";
 export default function AdminPage() {
     const { onOpenModal } = useModal()
-    const { isAllProduct, setIsAllProduct } = useAuth();
-    useEffect(() => {
-        axios
-            .get('http://localhost:8888/auth/product', { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` } })
-            .then(res => {
-                setIsAllProduct(res.data.getproduct)
-            })
-            .catch(err => console.log(err));
-    }, [])
+    const { getProduct, setIsAllProduct } = useAuth();
+    useEffect(() => { getProduct() }, [])
+
     return (
         <div className=' flex flex-col h-[5000px] w-[1200px] items-center justify-items-center'>
             <div className="w-full flex justify-end items-center gap-2">

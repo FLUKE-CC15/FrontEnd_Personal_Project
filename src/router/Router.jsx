@@ -6,6 +6,7 @@ import ProductPage from '../pages/ProductPage'
 import RegisterPage from '../pages/RegisterPage'
 import AdminPage from '../pages/AdminPage'
 import Authenticated from '../features/auth/Authenticated'
+import ShowProductPage from '../pages/ShowProductPage'
 // import { useState } from 'react'
 const router = createBrowserRouter(
     [{
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
         children: [
             { path: '/', element: <HomePage /> },
             { path: '/product', element: <ProductPage /> },
+            { path: '/product/name', element: <ShowProductPage /> },
             { path: '/register', element: <RegisterPage /> },
             { path: '/admin', element: <Authenticated> <AdminPage /></Authenticated> },
 

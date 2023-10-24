@@ -59,6 +59,16 @@ export default function AuthContextProvider({ children }) {
     setAuthUser(null);
   };
 
+  const getProduct = () => {
+    axios
+      .get('/auth/product', { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` } })
+      .then(res => {
+        setIsAllProduct(res.data.getproduct)
+      })
+      .catch(err => console.log(err));
+  };
+
+
   const createProduct = async createProductInputObject => {
     const res = await axios.post('/auth/product', createProductInputObject);
     const newProduct = res.data.product
@@ -78,11 +88,24 @@ export default function AuthContextProvider({ children }) {
       setIsAllProduct((prevProducts) => prevProducts.filter((e) => e.id !== product.id));
     } catch (error) {
       console.error('Error deleting product:', error);
-      // Handle the error, e.g., display an error message to the user
+      // chat GPT
     }
+  };
+
+  const updetedProduct = async (product) => {
+    console.log(product);
+    try {
+      console.log("******************************************");
+      await axios.put('/auth/product', product)
+    }
+    catch (error) {
+      console.error('Error updating product', error);
+    }
+
   };
 
 
 
-  return <AuthContext.Provider value={{ deleteProduct, isAllProduct, setIsAllProduct, login, authUser, initialLoading, register, isLogin, isLoginErr, logout, createProduct }}>{children}</AuthContext.Provider>
+
+  return <AuthContext.Provider value={{ getProduct, deleteProduct, isAllProduct, setIsAllProduct, login, authUser, initialLoading, register, isLogin, isLoginErr, logout, createProduct, updetedProduct }}>{children}</AuthContext.Provider>
 }
