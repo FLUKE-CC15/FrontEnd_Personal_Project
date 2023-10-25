@@ -21,7 +21,7 @@ export default function ProductPage() {
         </div>
         <div className=" text-[40px] font-bold w-[1100px] pl-2">Products</div>
         <div className="mb-[50px] mt-3">
-            <CardProduct />
+            <Link to='/product/name'><CardProduct /></Link>
         </div>
         {/* <div className="flex justify-center items-center w-[1100px] gap-3 p-2 pb-5 ">
             <button className=" w-8 h-8 font-medium  border-2 border-sky-500 bg-gray-100 text-sky-600 rounded-full ">1</button>

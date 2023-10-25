@@ -7,6 +7,7 @@ import RegisterPage from '../pages/RegisterPage'
 import AdminPage from '../pages/AdminPage'
 import Authenticated from '../features/auth/Authenticated'
 import ShowProductPage from '../pages/ShowProductPage'
+import RedirectAuthenticated from '../features/auth/RedirectAuthenticated'
 // import { useState } from 'react'
 const router = createBrowserRouter(
     [{

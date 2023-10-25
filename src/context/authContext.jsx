@@ -51,6 +51,7 @@ export default function AuthContextProvider({ children }) {
     const res = await axios.post('/auth/register', registerInputObject);
     AddAccessToken(res.data.accessToken);
     setAuthUser(res.data.user);
+    setIsLogin(true)
   };
 
   const logout = () => {
@@ -75,25 +76,19 @@ export default function AuthContextProvider({ children }) {
     setIsAllProduct([newProduct, ...isAllProduct])
   };
 
-  // const deleteProduct = async product => {
-  //   console.log(product)
-  //   await axios.delete('/auth/product', product);
-  //   setIsAllProduct(isAllProduct.filter(e => e.id !== product.id))
-  // };
 
   const deleteProduct = async (product) => {
-    console.log(product);
+    // console.log(product);
     try {
       await axios.delete('/auth/product', { data: product });
-      setIsAllProduct((prevProducts) => prevProducts.filter((e) => e.id !== product.id));
+      setIsAllProduct((el) => el.filter((e) => e.id !== product.id));
     } catch (error) {
       console.error('Error deleting product:', error);
-      // chat GPT
     }
   };
 
   const updetedProduct = async (product) => {
-    console.log(product);
+    // console.log(product);
     try {
       console.log("******************************************");
       await axios.put('/auth/product', product)

@@ -12,26 +12,24 @@ export default function HighlightProductSwiper() {
         spaceBetween={0}
         className=''
       >
-        <SwiperSlide className='flex justify-center'>
-          <CardProduct />
+        <SwiperSlide className=' mx-1 rounded-2xl bg-cyan-300 w-[300px] h-[300px]'>
+          {/* <CardProduct /> */}
         </SwiperSlide >
-        <SwiperSlide className='flex justify-center'>
-          <CardProduct />
+        <SwiperSlide className=' mx-1 rounded-2xl bg-cyan-300 w-[300px] h-[300px]'>
+          {/* <CardProduct /> */}
         </SwiperSlide >
-        <SwiperSlide className='flex justify-center'>
-          <CardProduct />
+        <SwiperSlide className=' mx-1 rounded-2xl bg-cyan-300 w-[300px] h-[300px]'>
+          {/* <CardProduct /> */}
         </SwiperSlide >
-        <SwiperSlide className='flex justify-center'>
-          <CardProduct />
+        <SwiperSlide className=' mx-1 rounded-2xl bg-cyan-300 w-[300px] h-[300px]'>
+          {/* <CardProduct /> */}
         </SwiperSlide >
-        <SwiperSlide className='flex justify-center'>
-          <CardProduct />
+        <SwiperSlide className=' mx-1 rounded-2xl bg-cyan-300 w-[300px] h-[300px]'>
+          {/* <CardProduct /> */}
         </SwiperSlide >
-        <SwiperSlide className='flex justify-center'>
-          <CardProduct />
+        <SwiperSlide className=' mx-1 rounded-2xl bg-cyan-300 w-[300px] h-[300px]'>
+          {/* <CardProduct /> */}
         </SwiperSlide >
-
-
       </Swiper>
     </div>
   );

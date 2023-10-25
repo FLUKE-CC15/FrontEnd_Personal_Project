@@ -2,7 +2,7 @@ import { useState } from "react";
 import Joi from 'joi';
 import InputErrorMessage from "../components/InputErrorMessage";
 import { useAuth } from "../hooks/use-auth";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const registerSchema = Joi.object({
@@ -33,6 +33,7 @@ export default function RegisterPage() {
     });
 
     const { register } = useAuth()
+    const navigate = useNavigate()
 
     const handleChangeInput = e => {
         setInput({ ...input, [e.target.name]: e.target.value })
@@ -45,7 +46,7 @@ export default function RegisterPage() {
             return setError(validationError);
         }
         setError({});
-        register(input).catch(err => {
+        register(input).then(res => navigate('/')).catch(err => {
             toast.error(err.response?.data.message);
         });
 
