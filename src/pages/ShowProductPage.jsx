@@ -10,6 +10,7 @@ import CategoryButton from "../layout/categoryButton";
 import { useAuth } from "../hooks/use-auth";
 import LoginPage from "../layout/LoginModal";
 import { useModal } from "../hooks/use-modal";
+import { useLocation } from 'react-router-dom';
 export default function ShowProductPage() {
     const { onOpenModal } = useModal()
     const [img, setImg] = useState(<img src={img1} />)
@@ -18,18 +19,24 @@ export default function ShowProductPage() {
     }
     const { isLogin } = useAuth()
     const [isModalLoginOpen] = useState(false)
-
     const handleBuyNow = () => {
         if (!isLogin) {
             onOpenModal("loginModal")
             return
         }
     }
+    const location = useLocation();
+    const { productName, price, information } = location.state || {};
+    // const [item, setItem] = useState('');
+    // const getSingleItem = () => {
+    //     axios.get(`/product/${Pitem.id}`).then((response) => {
+    //         setItem(response.data);
+    //     });
+    // };
     return <div className="flex flex-col items-center ">
 
-        <CategoryButton />
-
-        <div className="flex justify-start items-center w-[1100px] px-3 ">
+        {/* <CategoryButton /> */}
+        {/* <div className="flex justify-start items-center w-[1100px] px-3 ">
             <div className="flex justify-start w-[1100px] gap-5  py-2">
                 <div className="text-sky-500"><p>Home</p></div>
                 <div className="text-sky-500"> ❯ </div>
@@ -39,8 +46,8 @@ export default function ShowProductPage() {
                 <div className="text-sky-500"><p> ❯ </p></div>
                 <div className="text-sky-500"><p>Product Name</p></div>
             </div>
-        </div>
-        <div className=" text-[40px] font-bold w-[1100px] pl-2">Product Name</div>
+        </div> */}
+
 
         <div className="flex gap-5 items-center p-5 pb-20">
             <div className="flex justify-center items-center gap-2">
@@ -65,40 +72,23 @@ export default function ShowProductPage() {
 
             <div className="">
                 <div className="w-[500px] h-[500px] ">
-                    <div className="font-bold text-[25px] px-3">หูฟัง Beyerdynamic T1 3rd Generation Over-Ear Headphone</div>
-                    <div className="font-bold text-[35px] p-3 text-sky-500">$39,999</div>
-                    <div className="flex justify-center items-center text-[50px] text-gray-400 font-bold bg-sky-100 h-[150px] rounded-xl">Product Spec</div>
-                    <div>
-                        <div className="flex flex-row justify-center items-center pt-5 pb-2 gap-5">
-                            <div className="w-[60px] h-[60px] bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg "></div>
-                            <div className="w-[60px] h-[60px] bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg "></div>
-                            <div className="w-[60px] h-[60px] bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg "></div>
-                            <div className="w-[60px] h-[60px] bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg "></div>
-                            <div className="w-[60px] h-[60px] bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg "></div>
-                        </div>
-                    </div>
+                    <div className="font-bold text-[25px] px-3">{productName}</div>
+                    <div className="font-bold text-[35px] p-3 text-sky-500">${price}</div>
+                    <div className="flex justify-center items-center text-[50px] text-gray-400 font-bold bg-sky-100 h-[150px] rounded-xl">{information}</div>
 
-                    <div className="flex items-center justify-center gap-2 py-3">
-                        <div className="font-bold"> Quantity :</div>
-                        <div className="flex justify-center items-center w-[90px]">
-                            <button className="w-[24px] h-[30px] flex border-2 justify-center items-center rounded-l-lg font-bold hover:border-sky-500">-</button>
-                            <div className="w-[42px] h-[30px] flex border-y-2 justify-center items-center font-bold" >2</div>
-                            <button className="w-[24px] h-[30px] flex border-2 justify-center items-center rounded-r-lg font-bold hover:border-sky-500">+</button>
-                        </div>
-                    </div>
-                    <div className="flex justify-center px-3 py-1 items-center gap-3">
-                        <Link to='/emptycart'><button className="px-4 py-1 font-bold bg-sky-50 border-2 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-sky-500 rounded-lg text-sm">Add to cart</button></Link>
-                        <button className="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm" onClick={() => handleBuyNow()}>Buy now</button>
+                    <div className="flex justify-center px-3 py-1 mt-10 items-center gap-3 ">
+                        <button className="px-4 py-1 font-bold bg-gray-400 border-2 border-gray-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm" onClick={() => handleBuyNow()}>Add List</button>
+                        <Link to='/checkout'> <button className="px-4 py-1 font-bold bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-lg text-sm" onClick={() => handleBuyNow()}>Buy now</button></Link>
                     </div>
                 </div>
             </div>
         </div>
-        <div className="w-full">
+        {/* <div className="w-full">
             <div className="p-5  grid justify-center">
-                <div className=" text-[30px] font-bold pl-2">Interesting Product!</div>
+                <div className=" text-[30px] font-bold pl-2">Interesting course!</div>
                 <HeadphoneSwiper />
             </div>
-        </div>
+        </div> */}
         <LoginPage open={isModalLoginOpen} />
 
     </div>

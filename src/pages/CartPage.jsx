@@ -85,11 +85,11 @@ export default function CartPage() {
 
 
 
-        <div className="w-screen">
+        {/* <div className="w-screen">
             <div className="p-5 bg-sky-50 grid justify-center">
                 <div className="text-[30px] font-bold pl-2">Interesting Product!</div>
                 <HeadphoneSwiper />
             </div>
-        </div>
+        </div> */}
     </div>
 }

@@ -20,6 +20,7 @@ export default function AuthContextProvider({ children }) {
         .then(res => {
           setAuthUser(res.data.user);
           setIsLogin(true)
+
         })
         .finally(() => {
           setInitialLoading(false);
@@ -27,6 +28,7 @@ export default function AuthContextProvider({ children }) {
     }
     else {
       setInitialLoading(false);
+
     }
   }, []);
 

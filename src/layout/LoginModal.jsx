@@ -24,7 +24,6 @@ export default function LoginModal() {
             setisNotUser(false), setisNotPassword(false)
         }
         let isvalid = await login(input)
-
         if (isvalid) onCloseModal()
     }
 
