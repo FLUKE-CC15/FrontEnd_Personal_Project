@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/use-auth";
 import { useModal } from "../hooks/use-modal"
+import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import QR from '../images/QR.png'
-export default function CheckoutPage() {
+
+
+export default function CheckoutPage({ navigate }) {
+
     const { onCloseModal, isOpenModal, modalType, price, pId } = useModal()
     const { createPaySlip, authUser } = useAuth();
     const [isPaySlip, setIsPaySlip] = useState({
@@ -11,8 +16,8 @@ export default function CheckoutPage() {
         product: pId
     })
     const [paySlip, setPaySlip] = useState()
-    console.log("product", pId)
-    console.log("authUser", authUser?.id)
+    // console.log("product", pId)
+    // console.log("authUser", authUser?.id)
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -26,8 +31,10 @@ export default function CheckoutPage() {
             };
             reader.readAsDataURL(file);
         }
-    };
-    const handleSubmitForm = e => {
+    }
+    const { getMyOrder } = useAuth();
+
+    const handleSubmitForm = async e => {
         e.preventDefault();
         const body = {
             paySlip: paySlip,
@@ -37,8 +44,12 @@ export default function CheckoutPage() {
         createPaySlip(body).then(() => {
             setIsPaySlip({
                 paySlip: ""
-            });
-        });
+            })
+        })
+        navigate('/myitem');
+        getMyOrder()
+        onCloseModal()
+
     };
     return (<form onSubmit={handleSubmitForm}>{isOpenModal && modalType === "checkOutModal" && (
         <div className='fixed bottom-0 left-0 flex justify-center items-center h-full w-full backdrop-blur z-50'>
@@ -55,9 +66,9 @@ export default function CheckoutPage() {
                     <div className="font-bold text-[30px] text-sky-500 drop-shadow-md ">{price}</div>
                 </div>
                 <input onChange={handleImageChange} className="block mb-5  w-[70%] text-sm text-gray-900 border-2  rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file"></input >
-                <button className="mb-1 w-[70%] px-4 py-1 font-bold text-[20px] bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-xl" >Checkout</button>
+                <button className="mb-1  px-4 py-1 font-bold text-[20px] bg-sky-500 border-2 border-sky-600 hover:border-sky-500 hover:bg-gray-100 hover:text-sky-600 text-white rounded-xl" >Checkout</button>
             </div>
         </div>)
-    }</form>
+    }</form >
     )
 }

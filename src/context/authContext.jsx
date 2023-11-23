@@ -89,7 +89,7 @@ export default function AuthContextProvider({ children }) {
       .get('/auth/myorder', { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` } })
       .then(res => {
         // console.log(11111111111111);
-        console.log(res.data.getMyOrder, '======================================');
+        // console.log(res.data.getMyOrder, '======================================');
         setIsMyOrder(res.data.getMyOrder)
       })
       .catch(err => console.log(err));

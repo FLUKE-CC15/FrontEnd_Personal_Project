@@ -20,7 +20,7 @@ export default function ListCardProduct({ Pitem }) {
     return <div className=' bg-white overflow-hidden w-[220px] h-[300px] rounded-2xl border-2 hover:border-sky-500'
         onClick={handleClick}>
         <div className="w-full overflow-hidden  h-[75%] bg-gray-200 ">
-            <img src={Pitem.image} />
+            <img className='' src={Pitem.image} />
         </div>
         <div className="h-[25%] flex flex-col justify-center px-3">
             <div className="text-[12px] ">{Pitem.ProductName}</div>

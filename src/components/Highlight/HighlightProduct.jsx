@@ -1,4 +1,5 @@
 import HighlightProductSwiper from './HighlightProductSwiper'
+import pic1 from "../../images/pic/11.webp"
 export default function HighlightProduct() {
     return <div className='w-[1200px] flex flex-col mb-5'>
 
@@ -11,7 +12,7 @@ export default function HighlightProduct() {
             <div className='flex'>
                 <div className=''>
                     <div className=' overflow-hidden w-[220px] h-[300px] bg-sky-100 rounded-2xl border-2 border-grey-500'>
-                        <img src='https://source.unsplash.com/random' className=' w-[220px] h-[300px]' />
+                        <img className=' w-[220px] h-[300px]' src={pic1} />
                     </div>
                 </div>
                 <div>

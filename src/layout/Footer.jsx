@@ -10,7 +10,7 @@ export default function Footer() {
                     <img src={delivery} className='w-[60px]' />
                     <div>
                         <p className='font-bold text-lg'>Free Shipping</p>
-                        <p>เมื่อซื้อขั้นต่ำ 4,999.-</p>
+                        <p>จัดส่งฟรี</p>
                     </div>
                 </div>
                 <div className='flex items-center gap-3'>

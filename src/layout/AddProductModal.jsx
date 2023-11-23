@@ -57,23 +57,18 @@ export default function AddProductModal() {
                     <input value={inputProduct.ProductName} onChange={e => setInputProduct({ ...inputProduct, ProductName: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product name..." type="text" />
                     <input value={inputProduct.price} onChange={e => setInputProduct({ ...inputProduct, price: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product price..." type="text" />
                     <input value={inputProduct.information} onChange={e => setInputProduct({ ...inputProduct, information: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="information..." type="text" />
-
                     <input
                         onChange={handleImageChange}
                         className="w-full bg-white border-2 rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                         type="file"
                     />
-
-                    {/* <input value={inputProduct.productType} onChange={e => setInputProduct({ ...inputProduct, productType: e.target.value })}
-                        className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product type..." type="text" >
-                    </input> */}
-                    <select name='productType' onChange={e => setInputProduct({ ...inputProduct, productType: e.target.value })}>
-                        <option ></option>
-                        <option value="Weapons">Weapons</option>
+                    {/* <select name='productType' onChange={e => setInputProduct({ ...inputProduct, productType: e.target.value })} class=" border-sky-300 border-2 text-sm rounded-full focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5  ">
+                        <option selected>Choose a ...</option>
+                        <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
-                    </select>
-
+                        <option value="D">D</option>
+                    </select> */}
 
 
 

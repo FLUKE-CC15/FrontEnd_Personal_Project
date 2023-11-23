@@ -9,12 +9,15 @@ import { useAuth } from "../hooks/use-auth";
 import LoginPage from "../layout/LoginModal";
 import { useModal } from "../hooks/use-modal";
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import CheckoutPage from "./CheckoutPage";
 export default function ShowProductPage() {
     const { onOpenModal } = useModal()
     // const [img, setImg] = useState(<img src={img1} />)
     // const onClickSelectImg = (link) => {
     //     setImg(link)
     // }
+    const navigate = useNavigate();
     const { isLogin } = useAuth()
     const [isModalLoginOpen] = useState(false)
     const location = useLocation();
@@ -72,6 +75,7 @@ export default function ShowProductPage() {
                 </div>
             </div>
         </div>
+        <CheckoutPage navigate={navigate} />
         <LoginPage open={isModalLoginOpen} />
     </div>
 }

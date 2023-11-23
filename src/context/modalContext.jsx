@@ -2,9 +2,10 @@
 import { createContext, useEffect } from 'react';
 import { useState } from 'react'
 export const ModalContext = createContext();
-
+import { useNavigate } from "react-router-dom";
 
 export default function ModalContextProvider({ children }) {
+    // const navigate = useNavigate();
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [modalType, setModalType] = useState(null)
     const [price, setPrice] = useState(null);

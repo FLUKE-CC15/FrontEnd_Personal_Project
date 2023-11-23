@@ -1,4 +1,4 @@
-import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Outlet, RouterProvider, createBrowserRouter, useNavigate } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 import Header from '../layout/header'
 import Footer from '../layout/footer'
@@ -10,6 +10,8 @@ import ShowProductPage from '../pages/ShowProductPage'
 import RedirectAuthenticated from '../features/auth/RedirectAuthenticated'
 import CartPage from '../pages/CartPage'
 import MyOrderPage from '../pages/myOrderPage'
+import CheckoutPage from '../pages/CheckoutPage'
+
 // import { useState } from 'react'
 const router = createBrowserRouter(
     [{
@@ -23,17 +25,13 @@ const router = createBrowserRouter(
         ),
         children: [
             { path: '/', element: <HomePage /> },
-            { path: '/', element: <ProductPage /> },
             { path: '/product', element: <ProductPage /> },
             { path: '/product/:id', element: <ShowProductPage /> },
             { path: '/register', element: <RegisterPage /> },
             { path: '/admin', element: <Authenticated> <AdminPage /></Authenticated> },
-            { path: '/checkout', element: <Authenticated> <CartPage /></Authenticated> },
+            { path: '/checkout', element: <Authenticated> <CheckoutPage /></Authenticated> },
             { path: '/myitem', element: <Authenticated> <MyOrderPage /></Authenticated> },
-
-
         ]
-
     }
 
     ]
