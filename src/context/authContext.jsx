@@ -13,6 +13,8 @@ export default function AuthContextProvider({ children }) {
   const [isLogin, setIsLogin] = useState(false);
   const [isLoginErr, setisLoginErr] = useState(false);
   const [isAllProduct, setIsAllProduct] = useState([]);
+  const [isAllOrder, setIsAllOrder] = useState([]);
+
   useEffect(() => {
     if (getAccessToken()) {
       axios
@@ -30,7 +32,7 @@ export default function AuthContextProvider({ children }) {
       setInitialLoading(false);
 
     }
-  }, []);
+  }, [setAuthUser]);
 
 
 
@@ -71,11 +73,27 @@ export default function AuthContextProvider({ children }) {
       .catch(err => console.log(err));
   };
 
+  const getOrder = () => {
+    axios
+      .get('/auth/getorder', { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` } })
+      .then(res => {
+        setIsAllOrder(res.data.getOrder)
+      })
+      .catch(err => console.log(err));
+  };
+
 
   const createProduct = async createProductInputObject => {
     const res = await axios.post('/auth/product', createProductInputObject);
     const newProduct = res.data.product
     setIsAllProduct([newProduct, ...isAllProduct])
+  };
+
+  const createPaySlip = async createPaySlip => {
+    console.log('-------------', createPaySlip)
+    const res = await axios.post('/auth/order', createPaySlip);
+    const newPaySlip = res.data.order
+    setIsAllOrder([newPaySlip, ...isAllOrder])
   };
 
 
@@ -104,5 +122,5 @@ export default function AuthContextProvider({ children }) {
 
 
 
-  return <AuthContext.Provider value={{ getProduct, deleteProduct, isAllProduct, setIsAllProduct, login, authUser, initialLoading, register, isLogin, isLoginErr, logout, createProduct, updetedProduct }}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={{ getOrder, isAllOrder, createPaySlip, getProduct, deleteProduct, isAllProduct, setIsAllProduct, login, authUser, initialLoading, register, isLogin, isLoginErr, logout, createProduct, updetedProduct }}>{children}</AuthContext.Provider>
 }

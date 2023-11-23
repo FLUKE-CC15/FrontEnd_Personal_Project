@@ -7,10 +7,13 @@ export const ModalContext = createContext();
 export default function ModalContextProvider({ children }) {
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [modalType, setModalType] = useState(null)
-
-    const onOpenModal = (type) => {
+    const [price, setPrice] = useState(null);
+    const [pId, setPId] = useState(null);
+    const onOpenModal = (type, productPrice, id) => {
         setIsOpenModal(true)
         setModalType(type)
+        setPId(id)
+        setPrice(productPrice);
     }
 
     //     useEffect(()=>{
@@ -23,5 +26,5 @@ export default function ModalContextProvider({ children }) {
     }
 
 
-    return <ModalContext.Provider value={{ isOpenModal, onOpenModal, onCloseModal, modalType }}>{children}</ModalContext.Provider>
+    return <ModalContext.Provider value={{ isOpenModal, onOpenModal, onCloseModal, modalType, price, pId }}>{children}</ModalContext.Provider>
 }

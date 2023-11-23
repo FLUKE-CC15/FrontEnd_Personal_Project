@@ -7,13 +7,30 @@ import { useAuth } from '../hooks/use-auth';
 export default function AddProductModal() {
     const { createProduct, getProduct } = useAuth();
     const { onCloseModal, isOpenModal, modalType } = useModal()
+    const [image, setImage] = useState("")
     const [inputProduct, setInputProduct] = useState({
         ProductName: '',
         price: '',
         information: '',
-        image: '',
+        image: "", // Use null instead of an empty string
         productType: ''
-    })
+    });
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setInputProduct({
+                    ...inputProduct,
+                    image: reader.result,  // Set the result as a data URL string
+                });
+                setImage(reader.result)
+
+            };
+            reader.readAsDataURL(file);
+        }
+    };
 
     const handleSubmitForm = e => {
         e.preventDefault();
@@ -23,7 +40,7 @@ export default function AddProductModal() {
                 ProductName: '',
                 price: '',
                 information: '',
-                image: '',
+                image: "",
                 productType: '',
 
             });
@@ -40,7 +57,12 @@ export default function AddProductModal() {
                     <input value={inputProduct.ProductName} onChange={e => setInputProduct({ ...inputProduct, ProductName: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product name..." type="text" />
                     <input value={inputProduct.price} onChange={e => setInputProduct({ ...inputProduct, price: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product price..." type="text" />
                     <input value={inputProduct.information} onChange={e => setInputProduct({ ...inputProduct, information: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="information..." type="text" />
-                    <input value={inputProduct.image} onChange={e => setInputProduct({ ...inputProduct, image: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="image..." type="text" />
+
+                    <input
+                        onChange={handleImageChange}
+                        className="w-full bg-white border-2 rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+                        type="file"
+                    />
                     <input value={inputProduct.productType} onChange={e => setInputProduct({ ...inputProduct, productType: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product type..." type="text" />
                     {/* <input value={inputProduct.categoryId} onChange={e => setInputProduct({ ...inputProduct, categoryId: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product type..." type="text" /> */}
                     <button className=" text-white font-semibold  bg-sky-400 border-2 hover:text-sky-500 hover:bg-white hover:border-sky-500 w-40 h-10 flex justify-center mt-3 items-center rounded-full " >Add Product</button>

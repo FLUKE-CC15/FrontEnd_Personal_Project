@@ -6,9 +6,10 @@ import AddProductModal from "../layout/AddProductModal";
 import { useAuth } from "../hooks/use-auth";
 export default function AdminPage() {
     const { onOpenModal } = useModal()
-    const { getProduct, setIsAllProduct } = useAuth();
-    useEffect(() => { getProduct() }, [])
-
+    const { getProduct, setIsAllProduct, getOrder, isAllOrder } = useAuth();
+    useEffect(() => { getProduct(); getOrder(); }
+        , [])
+    console.log(isAllOrder, "**************")
     return (
         <div className=' flex flex-col  h-[690px] w-[1200px] items-center justify-items-center mb-5'>
             <div className="w-full flex justify-end items-center gap-2">
@@ -26,8 +27,29 @@ export default function AdminPage() {
                 <div className=""></div>
             </div>
             <div className="overflow-auto  w-[1200px]"><AdminCardProduct /></div>
+            <div className="text-[50px]">-------------------------------------</div>
+            <div className="grid grid-cols-7 col-auto w-full gap-2 text-[20px] font-semibold mt-2 py-2 border-y-2">
+                <div className="flex justify-center items-center col-span-2">Product name</div>
+                <div className="flex justify-center items-center">price</div>
+                <div className="flex justify-center items-center">USER</div>
+                <div className="flex justify-center items-center">paySlip</div>
+                <div className="flex justify-center items-center">Product type</div>
+                <div className=""></div>
+            </div>
+            {isAllOrder.map(e => {
+                return (<div key={e.id} className="">
+                    <div className="flex gap-5 justify-center items-center">
+                        <div className=" ">{e.product.ProductName}</div>
+                        <div className=" ">{e.user.userName}</div>
+                        <img className=" w-[50px]" src={e.paySlip}></img>
+                    </div>
+                </div>
+                )
+            })}
 
-        </div>
+        </div >
+
+
     )
 }
 
