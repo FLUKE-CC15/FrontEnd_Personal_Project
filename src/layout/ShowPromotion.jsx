@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
+import { useAuth } from '../hooks/use-auth';
 
 function ShowPromotion() {
+    const { getProduct } = useAuth();
+    useEffect(() => { getProduct() }, [])
     return (
         <div className='w-[99.1vw] h-[300px] ' >
             <Swiper

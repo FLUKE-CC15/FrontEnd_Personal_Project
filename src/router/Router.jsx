@@ -9,6 +9,7 @@ import Authenticated from '../features/auth/Authenticated'
 import ShowProductPage from '../pages/ShowProductPage'
 import RedirectAuthenticated from '../features/auth/RedirectAuthenticated'
 import CartPage from '../pages/CartPage'
+import MyOrderPage from '../pages/myOrderPage'
 // import { useState } from 'react'
 const router = createBrowserRouter(
     [{
@@ -22,11 +23,13 @@ const router = createBrowserRouter(
         ),
         children: [
             { path: '/', element: <HomePage /> },
+            { path: '/', element: <ProductPage /> },
             { path: '/product', element: <ProductPage /> },
             { path: '/product/:id', element: <ShowProductPage /> },
             { path: '/register', element: <RegisterPage /> },
             { path: '/admin', element: <Authenticated> <AdminPage /></Authenticated> },
             { path: '/checkout', element: <Authenticated> <CartPage /></Authenticated> },
+            { path: '/myitem', element: <Authenticated> <MyOrderPage /></Authenticated> },
 
 
         ]

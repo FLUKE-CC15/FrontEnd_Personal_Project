@@ -29,7 +29,12 @@ export default function UpdetedProductModal({ item }) {
                     <input name={"price"} onChange={handleChangeProduct} value={product?.price || ""} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product price..." type="text" />
                     <input name={"information"} onChange={handleChangeProduct} value={product?.information || ""} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="information..." type="text" />
                     <input name={"image"} onChange={handleChangeProduct} value={product?.image || ""} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="image..." type="text" />
-                    <input name={"productType"} onChange={handleChangeProduct} value={product?.productType || ""} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product type..." type="text" />
+                    <select name='productType' onChange={handleChangeProduct}>
+                        <option ></option>
+                        <option value="Weapons">Weapons</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
                     <button className=" text-white font-semibold  bg-sky-400 border-2 hover:text-sky-500 hover:bg-white hover:border-sky-500 w-40 h-10 flex justify-center mt-3 items-center rounded-full " onSubmit={handleSubmitForm} >updete Product</button>
                 </div>
             </div>

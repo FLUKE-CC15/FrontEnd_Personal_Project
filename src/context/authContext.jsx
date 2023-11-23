@@ -14,6 +14,8 @@ export default function AuthContextProvider({ children }) {
   const [isLoginErr, setisLoginErr] = useState(false);
   const [isAllProduct, setIsAllProduct] = useState([]);
   const [isAllOrder, setIsAllOrder] = useState([]);
+  const [isMyOrder, setIsMyOrder] = useState([]);
+  // console.log(isAllOrder, "----------")
 
   useEffect(() => {
     if (getAccessToken()) {
@@ -82,6 +84,17 @@ export default function AuthContextProvider({ children }) {
       .catch(err => console.log(err));
   };
 
+  const getMyOrder = () => {
+    axios
+      .get('/auth/myorder', { headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` } })
+      .then(res => {
+        // console.log(11111111111111);
+        console.log(res.data.getMyOrder, '======================================');
+        setIsMyOrder(res.data.getMyOrder)
+      })
+      .catch(err => console.log(err));
+  };
+
 
   const createProduct = async createProductInputObject => {
     const res = await axios.post('/auth/product', createProductInputObject);
@@ -90,7 +103,7 @@ export default function AuthContextProvider({ children }) {
   };
 
   const createPaySlip = async createPaySlip => {
-    console.log('-------------', createPaySlip)
+    // console.log('-------------', createPaySlip)
     const res = await axios.post('/auth/order', createPaySlip);
     const newPaySlip = res.data.order
     setIsAllOrder([newPaySlip, ...isAllOrder])
@@ -110,7 +123,7 @@ export default function AuthContextProvider({ children }) {
   const updetedProduct = async (product) => {
     // console.log(product);
     try {
-      console.log("******************************************");
+
       await axios.put('/auth/product', product)
     }
     catch (error) {
@@ -118,9 +131,17 @@ export default function AuthContextProvider({ children }) {
     }
 
   };
+  const updetedOrder = async (input) => {
+    try {
+      await axios.patch(`/auth/updatedorder/${input}`)
+      getOrder()
+    }
+    catch (error) {
+      console.error('Error updating product', error);
+    }
+  };
 
 
 
-
-  return <AuthContext.Provider value={{ getOrder, isAllOrder, createPaySlip, getProduct, deleteProduct, isAllProduct, setIsAllProduct, login, authUser, initialLoading, register, isLogin, isLoginErr, logout, createProduct, updetedProduct }}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={{ getMyOrder, isMyOrder, updetedOrder, getOrder, isAllOrder, createPaySlip, getProduct, deleteProduct, isAllProduct, setIsAllProduct, login, authUser, initialLoading, register, isLogin, isLoginErr, logout, createProduct, updetedProduct }}>{children}</AuthContext.Provider>
 }

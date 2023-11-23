@@ -10,7 +10,8 @@ export default function Header() {
         <Link to="/"><img src={NEXT} className=" flex justify-center items-center w-[300px] pb-2" /></Link>
         <ul className="w-[300px] flex justify-center items-center gap-5 text-sky-500 font-bold">
             <li className="hover:cursor-pointer"><Link to='/'>HOME</Link></li>
-            <li className="hover:cursor-pointer"><Link to='/product'>All COURSE</Link></li>
+            <li className="hover:cursor-pointer"><Link to='/product'>All ITEM</Link></li>
+            <li className="hover:cursor-pointer"><Link to='/myitem'>MY ITEM</Link></li>
             {isLogin ? <div className="flex justify-center items-center"><a href='/admin'><div className="fixed bottom-5 right-5"><AdminModal /></div> </a><div className="hover:cursor-pointer border-2 bg-red-500 text-white font-semibold px-3 py-1 rounded-full" onClick={logout}> Logout </div>  </div> : <li className="hover:cursor-pointer border-2 bg-sky-500 text-white font-semibold px-3 py-1 rounded-full" onClick={() => onOpenModal("loginModal")} >Login</li>}
         </ul>
     </header>

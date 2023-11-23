@@ -20,9 +20,9 @@ export default function ProductPage() {
             </div>
         </div> */}
         <div className="flex justify-start items-center gap-5">
-            <div className=" text-[40px] font-bold ">All COURSE</div>
-            <CategoryButton />
-            <input className="w-[150px] h-10 bg-white border-2  rounded-full py-1 pl-5 shadow-sm border-sky-500 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 focus:shadow-lg focus:shadow-sky-300/30 " placeholder="Search" type="text" />
+            <div className=" text-[40px] font-bold ">All ITEM</div>
+            {/* <CategoryButton />
+            <input className="w-[150px] h-10 bg-white border-2  rounded-full py-1 pl-5 shadow-sm border-sky-500 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 focus:shadow-lg focus:shadow-sky-300/30 " placeholder="Search" type="text" /> */}
         </div>
 
         <div className="mb-[50px] mt-3">

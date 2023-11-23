@@ -63,11 +63,26 @@ export default function AddProductModal() {
                         className="w-full bg-white border-2 rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                         type="file"
                     />
-                    <input value={inputProduct.productType} onChange={e => setInputProduct({ ...inputProduct, productType: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product type..." type="text" />
+
+                    {/* <input value={inputProduct.productType} onChange={e => setInputProduct({ ...inputProduct, productType: e.target.value })}
+                        className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product type..." type="text" >
+                    </input> */}
+                    <select name='productType' onChange={e => setInputProduct({ ...inputProduct, productType: e.target.value })}>
+                        <option ></option>
+                        <option value="Weapons">Weapons</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+
+
+
+
+
                     {/* <input value={inputProduct.categoryId} onChange={e => setInputProduct({ ...inputProduct, categoryId: e.target.value })} className="w-full bg-white border-2  rounded-full py-2 pl-5 shadow-sm border-sky-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 " placeholder="Product type..." type="text" /> */}
                     <button className=" text-white font-semibold  bg-sky-400 border-2 hover:text-sky-500 hover:bg-white hover:border-sky-500 w-40 h-10 flex justify-center mt-3 items-center rounded-full " >Add Product</button>
                 </div>
             </div>
         </div>
-    )}</form>)
+    )
+    }</form >)
 }
